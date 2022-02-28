@@ -1,9 +1,9 @@
 /* --------------------------------- spinner -------------------------------- */
-const spinner = (spinnerId) =>{
-  document.getElementById('spinner').style.display = spinnerId;
+const display = (proparty,value) =>{
+  document.getElementById(proparty).style.display = value;
 }
 window.addEventListener('load', function(){
-  spinner('none')
+  display('spinner','none');
 })
 
 /* --------------------------- load phone function -------------------------- */
@@ -11,9 +11,10 @@ const loadPhone = () =>{
   const inputField = document.getElementById('search-field');
   const inputFieldText = inputField.value.toLowerCase();
   if(inputFieldText === ''){
-    alert();
+    swal("Please Type Phone Name");
     return;
   }else{
+    display('spinner','block');
   const url = `https://openapi.programming-hero.com/api/phones?search=${inputFieldText}`;
   // console.log(url)
   inputField.value = '';
@@ -21,19 +22,24 @@ const loadPhone = () =>{
   .then(res => res.json())
   .then(data => {
     if(data.status){
-      displayPhone(data.data);
+      displayPhone(data.data.slice(0,20));
     }else{
-      alert();
+      display('spinner','block');
+      document.getElementById('show-card').textContent ='';
+      display('no-result','block');
+      display('spinner','none');
       return;
     }
   })
   }
- 
 }
 
 /* ------------------------- display phone function ------------------------- */
 const displayPhone = (phones) =>{
  const showCard = document.getElementById('show-card');
+ showCard.textContent ='';
+ display('no-result','none')
+ display('spinner','none');
  phones.forEach(phone =>{
   //  console.log(phone);
    const div = document.createElement('div');

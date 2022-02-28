@@ -15,3 +15,25 @@
   position: fixed;
   z-index: 100;
 }
+#no-result{
+  display: none;
+}
+.no-result{
+  background-color: #bdc3c7;
+  height: 60vh;
+  border-radius: 20px;
+  color: #34495e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* display: none; */
+}
+
+
+@media (max-width:480px) {
+  #no-result{
+    height: 20vh;
+    margin-top: 100px;
+  }
+}

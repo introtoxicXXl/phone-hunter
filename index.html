@@ -12,6 +12,7 @@
 
   <!-- ------------------------ font awsome cdn link ------------------------- -->
   <script src="https://kit.fontawesome.com/6331bf357f.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <!-- --------------------------- custom csslink ---------------------------- -->
   <link rel="stylesheet" href="css/style.css">
@@ -19,12 +20,11 @@
 
 <body>
   <!-- ------------------------------- spinner ------------------------------- -->
-  <div id="spinner">
+    <div id="spinner">
     </div>
 
     <!-- --------------------------- header section ---------------------------- -->
     <!-- ---------------------------- search field ----------------------------- -->
-  </div>
   <div class="container">
     <div class="my-4">
       <h1 class="text-center">Welcome To <span class="text-primary fw-bold">Phone Aqua </span><i class="text-secondary fas fa-mobile"></i></h1>
@@ -39,7 +39,13 @@
 <main>
 <!-- ---------------------------- card section ----------------------------- -->
 <div class="container">
-  <div class="row row-cols-1 row-cols-md-3 row-cols-sm-1 g-4 mt-lg-5" id="show-card"> 
+  <div class="row row-cols-1 row-cols-md-3 row-cols-sm-1 g-4 mt-lg-5 mb-4" id="show-card"> 
+  </div>
+  <!-- ----------------------- no result found section ----------------------- -->
+  <div id="no-result">
+    <div class="no-result">
+      <h3 class="fst-italic fw-bold">No Result Found</h3>
+    </div>
   </div>
 </div>
 </main>
