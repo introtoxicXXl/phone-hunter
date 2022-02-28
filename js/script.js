@@ -28,7 +28,8 @@ const loadPhone = () =>{
       resultFound.innerText=`${data.data.length} Result Found`;
     }else{
       display('spinner','block');
-      document.getElementById('show-card').textContent ='';
+      document.getElementById('show-card').textContent = '';
+      document.getElementById('show-details').textContent = '';
       display('no-result','block');
       display('spinner','none');
       display('result-found','none');
