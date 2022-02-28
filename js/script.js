@@ -10,18 +10,32 @@ window.addEventListener('load', function(){
 const loadPhone = () =>{
   const inputField = document.getElementById('search-field');
   const inputFieldText = inputField.value.toLowerCase();
+  if(inputFieldText === ''){
+    alert();
+    return;
+  }else{
   const url = `https://openapi.programming-hero.com/api/phones?search=${inputFieldText}`;
+  // console.log(url)
   inputField.value = '';
   fetch(url)
   .then(res => res.json())
-  .then(data => displayPhone(data.data))
+  .then(data => {
+    if(data.status){
+      displayPhone(data.data);
+    }else{
+      alert();
+      return;
+    }
+  })
+  }
+ 
 }
 
 /* ------------------------- display phone function ------------------------- */
 const displayPhone = (phones) =>{
  const showCard = document.getElementById('show-card');
  phones.forEach(phone =>{
-   console.log(phone);
+  //  console.log(phone);
    const div = document.createElement('div');
    div.className = 'col';
    div.innerHTML =`
