@@ -12,6 +12,8 @@
 
   <!-- ------------------------ font awsome cdn link ------------------------- -->
   <script src="https://kit.fontawesome.com/6331bf357f.js" crossorigin="anonymous"></script>
+
+  <!-- --------------------------- sweet alert cdn --------------------------- -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <!-- --------------------------- custom csslink ---------------------------- -->
@@ -20,35 +22,46 @@
 
 <body>
   <!-- ------------------------------- spinner ------------------------------- -->
-    <div id="spinner">
-    </div>
+  <div id="spinner">
+  </div>
 
-    <!-- --------------------------- header section ---------------------------- -->
-    <!-- ---------------------------- search field ----------------------------- -->
+  <!-- --------------------------- header section ---------------------------- -->
+  <!-- ---------------------------- search field ----------------------------- -->
   <div class="container">
     <div class="my-4">
-      <h1 class="text-center">Welcome To <span class="text-primary fw-bold">Phone Aqua </span><i class="text-secondary fas fa-mobile"></i></h1>
+      <h1 class="text-center">Welcome To <span class="text-primary fw-bold">Phone Aqua </span><i
+          class="text-secondary fas fa-mobile"></i></h1>
     </div>
     <div class="input-group mb-3 w-50 mx-auto">
-      <input type="text" class="form-control" id="search-field" placeholder="Search Your Favourite Phone" aria-label="Recipient's username"
-        aria-describedby="button-addon2">
-      <button class="btn btn-outline-secondary" type="button" onclick="loadPhone()" id="button-addon"><i class="fas fa-search"></i></button>
+      <input type="text" class="form-control" id="search-field" placeholder="Search Your Favourite Phone"
+        aria-label="Recipient's username" aria-describedby="button-addon2">
+      <button class="btn btn-outline-secondary" type="button" onclick="loadPhone()" id="button-addon"><i
+          class="fas fa-search"></i></button>
     </div>
+    <p class="text-danger text-center fw-bold" id="result-found"></p>
   </div>
   <!-- ---------------------------- main section ----------------------------- -->
-<main>
-<!-- ---------------------------- card section ----------------------------- -->
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3 row-cols-sm-1 g-4 mt-lg-5 mb-4" id="show-card"> 
-  </div>
-  <!-- ----------------------- no result found section ----------------------- -->
-  <div id="no-result">
-    <div class="no-result">
-      <h3 class="fst-italic fw-bold">No Result Found</h3>
+  <main>
+
+    <!-- --------------------------- details section --------------------------- -->
+    <div class="container">
+      <div class="row row-cols-2 g-4" id="show-details">
+      </div>
+
     </div>
-  </div>
-</div>
-</main>
+
+    <!-- ---------------------------- card section ----------------------------- -->
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3 row-cols-sm-1 g-4 mt-lg-5 mb-4" id="show-card">
+      </div>
+      <!-- ----------------------- no result found section ----------------------- -->
+      <div id="no-result">
+        <div class="no-result">
+          <h3 class="fst-italic fw-bold">No Result Found</h3>
+        </div>
+      </div>
+    </div>
+  </main>
 
 
 

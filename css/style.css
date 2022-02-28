@@ -29,7 +29,9 @@
   width: 100%;
   /* display: none; */
 }
-
+#result-found{
+  display: none;
+}
 
 @media (max-width:480px) {
   #no-result{
