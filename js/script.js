@@ -42,6 +42,7 @@ const loadPhone = () =>{
 const displayPhone = (phones) =>{
  const showCard = document.getElementById('show-card');
  showCard.textContent ='';
+ document.getElementById('show-details').textContent = '';
  display('no-result','none')
  display('spinner','none');
  phones.forEach(phone =>{
@@ -68,10 +69,12 @@ const loadDetails = (details) =>{
   .then(data => showDetails(data.data))
 }
 
+/* -------------------------- show details function ------------------------- */
 const showDetails = (data) =>{
+  console.log(data.others)
   const showDetails = document.getElementById('show-details');
-  showDetails.innerHTML = `
-  <div class="col d-flex justify-content-center align-items-center">
+  showDetails.innerHTML = ` 
+  <div class="col d-flex justify-content-center">
           <img src="${data.image}" class="h-75" alt="">
         </div>
         <div class="col">
@@ -90,8 +93,7 @@ const showDetails = (data) =>{
                 <td id="release-date"></td>
               </tr>
               <tr>
-                <th scope="row" class="text-center">Main Features</th>
-                <td> </td>
+                <th scope="row" colspan="2" class="text-center fs-4">Main Features</th>
               </tr>
               <tr>
                 <th scope="row">Stroage</th>
@@ -114,8 +116,7 @@ const showDetails = (data) =>{
                 <td>${data.mainFeatures.sensors}</td>
               </tr>
               <tr>
-                <th scope="row" class="text-center">Others</th>
-                <td> </td>
+                <th scope="row" colspan="2" class="text-center fs-4">Others</th>
               </tr>
               <tr>
                 <th scope="row">WLAN</th>
@@ -146,9 +147,12 @@ const showDetails = (data) =>{
         </div>
   `;
   const releaseDate = document.getElementById('release-date');
+  const wlan = document.getElementById('wlan');
   if(data.releaseDate){
+    releaseDate.className = 'text-success';
     releaseDate.innerText = data.releaseDate;
   }else{
+    releaseDate.className = 'text-danger'
     releaseDate.innerText = 'Coming soon';
-  }
+  };
 }
