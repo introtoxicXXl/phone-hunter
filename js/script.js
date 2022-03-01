@@ -10,21 +10,22 @@ window.addEventListener('load', function () {
 const loadPhone = () => {
   const inputField = document.getElementById('search-field');
   const inputFieldText = inputField.value.toLowerCase();
+  inputField.value ='';
   if (inputFieldText === '') {
     swal("Please Type Phone Name");
     return;
   } else {
     display('spinner', 'block');
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputFieldText}`;
-    inputField.value = '';
     fetch(url)
       .then(res => res.json())
       .then(data => {
+        //error handaling
         if (data.status) {
           displayPhone(data.data.slice(0, 20));
           const resultFound = document.getElementById('result-found');
           display('result-found', 'block');
-          resultFound.innerText = `${data.data.length} Result Found`;
+          resultFound.innerText = `${data.data.length} Results Found`;
         } else {
           display('spinner', 'block');
           document.getElementById('show-card').textContent = '';
@@ -48,8 +49,10 @@ const displayPhone = (phones) => {
   phones.forEach(phone => {
     const div = document.createElement('div');
     div.className = 'col';
-    div.innerHTML = `
-   <div class="card h-100 rounded-3 border-success">
+    div.innerHTML = 
+    //card body
+    `
+   <div class="card h-100 rounded-3 shadow border-secondary">
         <img src="${phone.image}" class="card-img-top w-75 mx-auto p-3" alt="...">
         <div class="card-body">
           <h3 class="card-title">${phone.phone_name}</h3>
@@ -72,7 +75,9 @@ const loadDetails = (details) => {
 /* -------------------------- show details function ------------------------- */
 const showDetails = (data) => {
   const showDetails = document.getElementById('show-details');
-  showDetails.innerHTML = ` 
+  showDetails.innerHTML = 
+  // full details body
+  ` 
   <div class="col d-flex justify-content-center">
           <img src="${data.image}" class="h-75" alt="">
         </div>
@@ -108,7 +113,7 @@ const showDetails = (data) => {
               </tr>
               <tr>
                 <th scope="row">Memory</th>
-                <td>${data.mainFeatures.memory}</td>
+                <td class="w-100">${data.mainFeatures.memory}</td>
               </tr>
               <tr>
                 <th scope="row">Sensor</th>
@@ -145,6 +150,7 @@ const showDetails = (data) => {
           </table>
         </div>
   `;
+  // if release date true or false
   const releaseDate = document.getElementById('release-date');
   const wlan = document.getElementById('wlan');
   if (data.releaseDate) {

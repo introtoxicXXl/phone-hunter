@@ -4,13 +4,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-
-}
-table{
-  overflow-x: hidden;
 }
 
-
+/* ------------------------------ spinner style ----------------------------- */
 #spinner{
   background: #fff url(/image/Ajux_loader.gif) no-repeat center center;
   background-size: 20%;
@@ -19,6 +15,8 @@ table{
   position: fixed;
   z-index: 100;
 }
+
+/* --------------------------- no result div style -------------------------- */
 #no-result{
   display: none;
 }
@@ -31,12 +29,13 @@ table{
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* display: none; */
 }
+
 #result-found{
   display: none;
 }
 
+/* ------------------------------- media query ------------------------------ */
 @media (max-width:480px) {
   #no-result{
     height: 20vh;
