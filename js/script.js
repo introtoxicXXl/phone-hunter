@@ -57,7 +57,7 @@ const displayPhone = (phones) => {
         <div class="card-body">
           <h3 class="card-title">${phone.phone_name}</h3>
           <p class="fst-italic fs-6">Brand: ${phone.brand}</p>
-          <button onclick="loadDetails('${phone.slug}')" class="btn btn-primary">Detail</button>
+          <button onclick="loadDetails('${phone.slug}')" class="btn btn-primary">Show Details</button>
         </div>
       </div>
    `;
@@ -68,7 +68,7 @@ const displayPhone = (phones) => {
 const loadDetails = (details) => {
   display('spinner','block');
   const url = `https://openapi.programming-hero.com/api/phone/${details}`;
-  fetch(url)
+    fetch(url)
     .then(res => res.json())
     .then(data => showDetails(data.data))
 }
