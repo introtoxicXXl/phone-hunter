@@ -1,10 +1,10 @@
 /* --------------------------------- spinner -------------------------------- */
 const display = (proparty, value) => {
   document.getElementById(proparty).style.display = value;
-}
+};
 window.addEventListener('load', function () {
   display('spinner', 'none');
-})
+});
 
 /* --------------------------- load phone function -------------------------- */
 const loadPhone = () => {
@@ -63,7 +63,7 @@ const displayPhone = (phones) => {
    `;
     showCard.appendChild(div);
   })
-}
+};
 /* -------------------------- load details function ------------------------- */
 const loadDetails = (details) => {
   display('spinner','block');
@@ -71,7 +71,7 @@ const loadDetails = (details) => {
     fetch(url)
     .then(res => res.json())
     .then(data => showDetails(data.data))
-}
+};
 
 /* -------------------------- show details function ------------------------- */
 const showDetails = (data) => {
@@ -162,4 +162,4 @@ const showDetails = (data) => {
     releaseDate.innerText = 'Coming soon';
   };
   display('spinner','none');
-}
+};
