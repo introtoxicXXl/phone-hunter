@@ -66,6 +66,7 @@ const displayPhone = (phones) => {
 }
 /* -------------------------- load details function ------------------------- */
 const loadDetails = (details) => {
+  display('spinner','block');
   const url = `https://openapi.programming-hero.com/api/phone/${details}`;
   fetch(url)
     .then(res => res.json())
@@ -160,4 +161,5 @@ const showDetails = (data) => {
     releaseDate.className = 'text-danger'
     releaseDate.innerText = 'Coming soon';
   };
+  display('spinner','none');
 }
